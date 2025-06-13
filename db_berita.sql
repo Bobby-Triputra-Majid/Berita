@@ -1,98 +1,156 @@
-USE if0_39190718_berita;
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 13, 2025 at 03:30 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
--- Drop table dulu jika sudah ada (opsional)
-DROP TABLE IF EXISTS `berita`;
-DROP TABLE IF EXISTS `tb_users`;
 
--- Recreate table berita
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_berita`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berita`
+--
+
 CREATE TABLE `berita` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `judul` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int(11) NOT NULL,
+  `judul` varchar(100) NOT NULL,
   `description` text NOT NULL,
   `kategori` varchar(100) NOT NULL,
   `image` varchar(200) NOT NULL,
-  `slug` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `slug` text DEFAULT NULL,
   `author` varchar(250) DEFAULT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Insert berita terbaru (kategori tetap relevan)
-INSERT INTO `berita` 
-(`judul`, `description`, `kategori`, `image`, `slug`, `author`, `created_at`, `updated_at`) VALUES
+--
+-- Dumping data for table `berita`
+--
 
-('Indonesia Eksplorasi AI dan Teknologi Digital Bersama Inggris',
-'Deputi Menteri Kominfo Nezar Patria melakukan kunjungan kerja ke London Tech Week 2025 untuk menjajaki kerjasama artificial intelligence dan digital tech dengan UK.',
-'teknologi',
-'ai_uk.jpg',
-'indonesia-eksplorasi-ai-bersama-inggris',
-'Nezar Patria',
-'2025-06-12 10:00:00',
-NULL),
+INSERT INTO `berita` (`id`, `judul`, `description`, `kategori`, `image`, `slug`, `author`, `created_at`, `updated_at`) VALUES
+(9, 'Indonesia Eksplorasi AI dan Teknologi Digital Bersama Inggris', 'Deputi Menteri Kominfo Nezar Patria melakukan kunjungan kerja ke London Tech Week 2025 untuk menjajaki kerjasama artificial intelligence dan digital tech dengan UK.', 'teknologi', 'inggris.jpeg', 'indonesia-eksplorasi-ai-bersama-inggris', 'Bobby Triputra Majid', '2025-06-08 01:56:16', NULL),
+(16, 'Turki Ekspor 48 Jet Tempur KAAN ke Indonesia', 'Presiden Erdogan mengumumkan kesepakatan ekspor 48 unit jet tempur generasi kelima KAAN ke Indonesia, dengan integrasi manufaktur lokal. Kesepakatan ini menandai langkah besar dalam kerja sama pertahanan antara Turkiye dan Indonesia, sekaligus memperkuat kemampuan alutsista TNI AU.\r\n\r\nJet KAAN, yang dikembangkan oleh Turkiye sebagai pesawat tempur siluman generasi kelima, akan diproduksi dengan melibatkan industri pertahanan Indonesia, termasuk PT Dirgantara Indonesia (PTDI) dan PT Len Industri, sebagai bagian dari transfer teknologi.\r\n\r\nDetail Kesepakatan:\r\nJumlah: 48 unit jet tempur KAAN (dalam beberapa tahap pengiriman).\r\n\r\nIntegrasi Manufaktur Lokal: Komponen tertentu akan diproduksi di Indonesia.\r\n\r\nTransfer Teknologi: Pelatihan dan alih pengetahuan untuk insinyur dan teknisi Indonesia.\r\n\r\nNilai Kontrak: Diperkirakan mencapai $5-6 miliar, termasuk dukungan logistik dan persenjataan.\r\n\r\nDampak bagi Indonesia:\r\n✅ Modernisasi AU: Memperkuat skuadron tempur dengan jet siluman mutakhir.\r\n✅ Penguatan Industri Pertahanan: Mendorong kemandirian dalam produksi alutsista.\r\n✅ Kerja Sama Strategis: Memperdalam hubungan pertahanan dengan Turkiye, termasuk potensi kerja sama di proyek lain seperti rudal, drone, dan kapal perang.\r\n\r\nTantangan:\r\n⚠️ Pembiayaan: Kemungkinan perlu skema pembayaran jangka panjang atau offset.\r\n⚠️ Operasionalisasi: Persiapan infrastruktur, pelatihan pilot, dan pemeliharaan.\r\n\r\nKesepakatan ini juga bisa memicu respons dari negara lain, termasuk pemasok tradisional seperti AS (F-35) atau Rusia (Su-35/Su-57), yang sebelumnya bersaing di pasar Indonesia.\r\n\r\nLangkah Selanjutnya:\r\n\r\nPenandatanganan kontrak resmi (2024-2025).\r\n\r\nImplementasi transfer teknologi dan produksi bersama.\r\n\r\nPengiriman tahap pertama diperkirakan mulai 2028-2030.', 'politik', '684a8b1d0f09b.jpeg', 'turki-ekspor-48-jet-tempur-kaan-ke-indonesia', 'Rita Andriana', '2025-06-12 15:09:01', NULL),
+(17, 'GIIAS 2025 Siap Digelar 24 Juli di BSD City', 'Gaikindo Indonesia International Auto Show (GIIAS 2025), pameran otomotif terbesar dan paling bergengsi di Indonesia, akan kembali digelar pada 24 Juli hingga 3 Agustus 2025 di Indonesia Convention Exhibition (ICE) BSD City, Tangerang. Acara ini menjadi ajang utama bagi pelaku industri otomotif untuk memamerkan produk terbaru, teknologi canggih, dan strategi pasar di tengah transformasi elektrifikasi dan digitalisasi.\r\n\r\nDetail Acara GIIAS 2025\r\nLokasi & Waktu:\r\n\r\nTempat: ICE BSD City, Tangerang Selatan (luas pameran ~120.000 m²).\r\n\r\nJadwal:\r\n\r\nMedia & Industry Day: 24 Juli 2025 (khusus undangan).\r\n\r\nPublik: 25 Juli – 3 Agustus 2025 (09.00–21.00 WIB).\r\n\r\nPeserta:\r\n\r\nLebih dari 30 merek otomotif (termasuk Toyota, Hyundai, Honda, Mitsubishi, BMW, Mercedes-Benz, Wuling, BYD, dan Lexus).\r\n\r\nStartup otomotif dan perusahaan teknologi pendukung (e.g., baterai EV, fintech, IoT).\r\n\r\nPartisipasi khusus brand baru yang akan masuk pasar Indonesia (e.g., Omoda, Jetour, atau VinFast).\r\n\r\nHighlight GIIAS 2025:\r\n\r\nPeluncuran Mobil Baru: Minimal 15+ model baru (termasuk mobil listrik/EV, hybrid, dan mesin konvensional).\r\n\r\nKonsep Mobil Masa Depan: Prototipe kendaraan otonom (autonomous vehicle) dan desain futuristik.\r\n\r\nTeknologi Hijau: Fokus pada elektrifikasi (e.g., platform EV khusus Indonesia) dan bahan ramah lingkungan.\r\n\r\nDigital Experience: Simulator mengemudi, augmented reality (AR), dan integrasi AI di fitur kendaraan.\r\n\r\nPromo Menarik: Diskon hingga ratusan juta rupiah, paket kredit rendah, dan hadiah langsung.\r\n\r\nTema & Tren:\r\n\r\n\"Beyond Mobility\": Menyoroti evolusi otomotif dari sekadar transportasi ke solusi mobilitas terintegrasi.\r\n\r\nKeselamatan & Konektivitas: Fitur ADAS (Advanced Driver Assistance Systems), V2X (vehicle-to-everything), dan infotainment terkini.\r\n\r\nEkosistem EV: Perusahaan seperti Hyundai, BYD, dan Wuling akan pameran stasiun charging, battery swapping, dan model EV murah.\r\n\r\nEstimasi Pengunjung:\r\n\r\n200.000+ orang (peningkatan 15% dari GIIAS 2024).\r\n\r\nTarget utama: konsumen keluarga, enthusiast otomotif, investor, dan media.\r\n\r\nDampak bagi Industri Otomotif Indonesia\r\nPemulihan Pasar: Momentum kenaikan penjualan mobil pasca-pelambatan 2023–2024.\r\n\r\nDorongan EV: Akselerasi adopsi kendaraan listrik didukung insentif pemerintah (e.g., subsidi PPnBM).\r\n\r\nPersaingan Brand: Produsen akan berlomba menawarkan teknologi terbaik dengan harga kompetitif.\r\n\r\nFasilitas Pengunjung:\r\nOnline Ticketing: Via aplikasi resmi GIIAS atau e-commerce (harga tiket ~Rp50–150 ribu).\r\n\r\nShuttle Bus: Gratis dari stasiun MRT/BSD.\r\n\r\nZona Khusus: Test drive, kids zone, dan food festival.\r\n\r\nCatatan Penting:\r\nGIIAS 2025 akan berbarengan dengan perhelatan Jakarta Auto Week, memperkuat posisi Indonesia sebagai hub otomotif ASEAN.\r\n\r\nPotensi pengumuman kebijakan baru dari pemerintah terkait impor CBU, pajak EV, atau standar emisi Euro 5.', 'gayahidup', '684b0c9335321.jpg', 'giias-2025-siap-digelar-24-juli-di-bsd-city', 'Bobby Triputra Majid', '2025-06-13 00:21:23', NULL),
+(18, 'Pemerintah Umumkan Rencana Kenaikan Gaji PNS Mulai 2025', 'Pemerintah Republik Indonesia secara resmi mengumumkan rencana kenaikan gaji Pegawai Negeri Sipil (PNS) sebesar rata-rata 8% yang akan mulai berlaku pada Januari 2025. Kebijakan ini merupakan bagian dari upaya pemerintah untuk meningkatkan kesejahteraan aparatur sipil negara serta mendorong kinerja birokrasi yang lebih profesional dan berorientasi pelayanan. Kenaikan ini tidak hanya mencakup gaji pokok, tetapi juga akan disesuaikan dengan tunjangan-tunjangan yang melekat, seperti tunjangan keluarga, jabatan, dan kinerja.\r\n\r\nKenaikan gaji ini diatur dalam Peraturan Pemerintah (PP) Nomor 5 Tahun 2024 dan akan diterapkan untuk seluruh golongan PNS, dari golongan I hingga golongan IV. Misalnya, untuk PNS golongan IIIA, gaji pokok setelah kenaikan akan berada di kisaran Rp2.785.700 hingga Rp4.575.200, tergantung masa kerja golongan. Sementara itu, PNS golongan IV yang biasanya menjabat posisi manajerial, akan menerima gaji pokok hingga di atas Rp6 juta.\r\n\r\nPemerintah berharap kebijakan ini dapat menjaga daya beli PNS di tengah dinamika ekonomi dan tekanan inflasi, serta menjadi bentuk penghargaan atas dedikasi mereka dalam menjalankan tugas pelayanan publik. Selain itu, melalui kenaikan gaji ini, pemerintah juga ingin mendorong belanja masyarakat yang berasal dari kalangan ASN agar berkontribusi terhadap pertumbuhan ekonomi nasional. Kebijakan ini akan dikukuhkan secara lebih rinci melalui Nota Keuangan RAPBN 2025 dan diikuti oleh regulasi teknis dari kementerian terkait.', 'politik', '684bd971c1ed8.webp', 'pemerintah-umumkan-rencana-kenaikan-gaji-pns-mulai-2025', 'DImas Kanjeng', '2025-06-13 14:55:29', NULL),
+(19, 'Polisi Tangkap 10 Anggota Sindikat Narkoba Internasional di Bali', 'Direktorat Reserse Narkoba Polda Bali berhasil membongkar sindikat narkoba berskala internasional yang beroperasi di kawasan wisata Bali dalam kurun waktu sekitar satu bulan, dari April hingga 14 Mei 2025. Dalam operasi ini, aparat mengamankan 10 orang anggota sindikat, termasuk beberapa warga negara asing, dan menyita sabuu-sabu seberat total 5 kg sebagai barang bukti utama. Selain sabu, ditemukan pula narkotika jenis lain, seperti ganja, kokain, ekstasi, dan ketamin, yang menunjukkan keragaman jenis dan asal jaringan peredaran \r\n.\r\nDari penyitaan tersebut – yang bernilai miliaran rupiah – diperkirakan polisi berhasil menyelamatkan ribuan potensi korban dari penyalahgunaan, dan seluruh tersangka kini telah ditahan di Rutan Polda Bali, siap diproses sesuai UU Nomor 35 Tahun 2009 tentang Narkotika \r\n\r\nOperasi ini dilakukan di sejumlah titik strategis, termasuk area wisata dan sekitar Bandara Internasional I Gusti Ngurah Rai. Terdapat delapan warga negara asing dari berbagai negara yang ikut diamankan, menandakan kuatnya jaringan internasional yang menggunakan Bali sebagai pasar dan titik transit \r\n\r\nPolda Bali menegaskan bahwa ini adalah bentuk komitmen berkelanjutan dalam memberantas peredaran narkoba, terutama yang menyasar generasi muda dan kawasan pariwisata. Mereka juga menghimbau masyarakat untuk ikut serta menjadi “mata dan telinga” dalam pencegahan narkoba, agar Bali tetap aman dan bersih dari ancaman zat adiktif', 'ekonomi', '684bda13a530d.webp', 'polisi-tangkap-10-anggota-sindikat-narkoba-internasional-di-bali', 'Bobby Triputra Majid', '2025-06-13 14:58:11', NULL),
+(20, 'Gojek Rilis Fitur Baru \'GoCar EV\' dengan Armada Mobil Listrik', 'Gojek resmi meluncurkan layanan GoCar EV di Jakarta dan Bandung sebagai bagian dari komitmen untuk mengurangi emisi karbon, meningkatkan kualitas udara, dan mempromosikan transportasi ramah lingkungan. Berikut penjelasan dan poin-poin utamanya:\r\n\r\nGojek menghadirkan mobil listrik melalui layanan GoCar EV dengan sejumlah keuntungan utama. Keputusan ini sejalan dengan tujuan perusahaan untuk mencapai “zero emissions” pada tahun 2030, sebagaimana diungkapkan oleh kepemimpinan Gojek dalam strategi transisi armada menuju kendaraan listrik \r\n\r\nSebagai langkah awal, GoCar EV diluncurkan di dua kota besar—Jakarta dan Bandung—untuk memulai adopsi transportasi listrik secara masif. Layanan ini juga tersedia sebagai varian di terminal-terminal transportasi utama seperti Bandara YIA . Armada GoCar EV ini ditujukan sebagai alternatif yang lebih bersih dibandingkan mobil berbahan bakar fosil.\r\n\r\nIntegrasi GoCar EV mengikuti berbagai inovasi sebelumnya, seperti GoRide Electric (motor listrik) yang telah menunjukkan keberhasilan, dengan pemesanan meningkat 2× lipat dan penghematan biaya hingga Rp 700.000 per bulan bagi mitra driver. Hal ini juga didukung oleh kerja sama strategis Gojek dengan pihak seperti Gogoro, Pertamina, dan TBS Energi Utama melalui program Electrum, untuk membangun ekosistem EV lengkap di Indonesia \r\n\r\nSecara teknis, GoCar EV menawarkan pengalaman berkendara yang tenang, tanpa emisi karbon, dan nyaman. Mobil listrik yang digunakan terintegrasi penuh dalam aplikasi Gojek, memudahkan pengguna untuk memilih layanan ramah lingkungan ini sebagai opsi perjalanan mereka \r\n\r\n🔹 Poin-poin Utama GoCar EV\r\n- Ramah lingkungan: Mengurangi tingkat emisi karbon dan meningkatkan kualitas udara kota.\r\n- Mulai di Jakarta & Bandung: Dua fokus awal adopsi armada elektrifikasi.\r\n- Termasuk di bandara: Akses melalui layanan khusus EV di bandara (misalnya YIA).\r\n- Dukung target 2030: Menuju 100% armada EV dan nol emisi di ekosistem Gojek \r\n- Dukungan infrastruktur: Kolaborasi dengan Electrum, Gogoro, dan Pertamina membangun stasiun swap dan fasilitas  charging.\r\n- Pengalaman premium: Kendaraan EV menawarkan kenyamanan dan kebersihan yang lebih baik dibanding mobil bensin.', 'teknologi', '684bdb2765da0.jpg', 'gojek-rilis-fitur-baru-gocar-ev-dengan-armada-mobil-listrik', 'Rita Andriana', '2025-06-13 15:02:47', NULL),
+(21, 'Kampus Merdeka Diperluas, Mahasiswa Boleh Ambil Prodi Lintas Universitas', 'Program Kampus Merdeka akan mengalami perluasan mulai tahun 2025 sebagai bagian dari komitmen pemerintah dalam meningkatkan fleksibilitas dan kualitas pendidikan tinggi di Indonesia. Dalam skema terbaru ini, mahasiswa akan diberikan keleluasaan yang lebih besar untuk mengambil mata kuliah di luar program studi (prodi) asal mereka, baik di dalam universitas yang sama maupun di universitas lain, tanpa dikenakan biaya tambahan.\r\n\r\nTujuan dari perluasan ini adalah untuk mendorong mahasiswa mengembangkan kompetensi lintas disiplin, meningkatkan kesiapan kerja, serta memperluas jejaring akademik dan profesional. Mahasiswa dapat, misalnya, mengambil mata kuliah teknik di kampus lain meskipun berasal dari prodi ekonomi, selama relevan dengan pengembangan kompetensi mereka. Proses pengakuan kredit akan dilakukan secara otomatis melalui sistem terintegrasi antar perguruan tinggi yang sudah disiapkan oleh Kemendikbudristek.\r\n\r\nLangkah ini juga bertujuan mendorong kolaborasi antarperguruan tinggi, termasuk swasta dan negeri, serta mendukung pembelajaran berbasis pengalaman dan proyek. Dengan begitu, mahasiswa tidak hanya terbatas belajar dari dosennya sendiri, tetapi bisa mengakses pengajar dan materi terbaik dari berbagai kampus mitra. Pemerintah menjamin bahwa perluasan ini tidak akan membebani mahasiswa secara finansial, karena seluruh biaya akan ditanggung oleh negara atau perguruan tinggi pengirim dan penerima.\r\n\r\nProgram ini merupakan bagian dari visi jangka panjang untuk menciptakan lulusan yang adaptif, inovatif, dan siap bersaing di dunia kerja global yang terus berubah.', 'hiburan', '684bdbb2ec041.jpg', 'kampus-merdeka-diperluas-mahasiswa-boleh-ambil-prodi-lintas-universitas', 'Mutiara Suci', '2025-06-13 15:05:06', NULL),
+(22, 'Tesla Resmi Masuk Indonesia, Model Y Mulai Dijual dengan Harga Rp1,2 Miliar', 'Tesla secara resmi telah masuk ke pasar Indonesia, dengan mulai dijualnya model SUV listrik Tesla Model Y. Mobil ini ditawarkan dengan harga mulai dari sekitar Rp1,2 miliar untuk varian Standard Range. Meskipun saat ini kehadirannya difasilitasi oleh importir umum dan belum melalui agen resmi Tesla Indonesia, langkah ini menjadi tonggak penting dalam penetrasi kendaraan listrik premium di Tanah Air.\r\n\r\nModel Y dikenal sebagai SUV listrik dengan kapasitas lima penumpang dan memiliki desain interior modern, dilengkapi layar sentuh 15 inci, atap panoramic kaca, serta fitur Autopilot untuk mendukung pengalaman berkendara yang lebih aman dan nyaman. Beberapa varian lainnya yang ditawarkan, seperti Long Range dan Performance, dijual dengan harga lebih tinggi, yaitu berkisar Rp1,8 miliar hingga Rp2,3 miliar.\r\n\r\nTesla Model Y juga memiliki keunggulan berupa nol emisi karbon, yang sejalan dengan tren kendaraan ramah lingkungan dan dukungan pemerintah terhadap transisi energi bersih. Selain itu, pemilik mobil listrik di Indonesia saat ini mendapatkan berbagai insentif, seperti pembebasan aturan ganjil-genap di beberapa kota dan potensi keringanan pajak.\r\n\r\nPoin-poin Penting:\r\n- Tesla Model Y resmi dijual di Indonesia mulai Rp1,2 miliar.\r\n- Varian lain seperti Long Range dan Performance tersedia hingga Rp2,3 miliar.\r\n- Memiliki fitur modern: Autopilot, layar sentuh besar, dan panoramic roof.\r\n- Menggunakan tenaga listrik sepenuhnya, bebas emisi karbon.\r\n- Masuk lewat importir umum, belum melalui agen resmi Tesla.\r\n- Mendukung gerakan kendaraan listrik nasional dan target transisi energi bersih.', 'gayahidup', '684bdd1587b19.jpeg', 'tesla-resmi-masuk-indonesia-model-y-mulai-dijual-dengan-harga-rp12-miliar', 'Mutiara Suci', '2025-06-13 15:11:01', NULL),
+(23, 'WHO Peringatkan Potensi Pandemi Baru \'Disease X\', Indonesia Diminta Siaga', 'Organisasi Kesehatan Dunia (WHO) telah memberikan peringatan mengenai potensi munculnya penyakit baru yang disebut \"Disease X\", yaitu patogen yang saat ini belum diketahui namun memiliki kemungkinan besar untuk menyebabkan pandemi di masa depan. Istilah Disease X sendiri sudah masuk dalam daftar prioritas WHO sejak tahun 2018 sebagai simbol dari penyakit tak dikenal yang bisa menimbulkan ancaman serius bagi kesehatan global.\r\n\r\nWHO memperkirakan bahwa Disease X dapat menjadi 20 kali lebih mematikan dibandingkan COVID-19, sehingga negara-negara di dunia diminta untuk meningkatkan kesiapsiagaan, termasuk dalam hal penguatan sistem kesehatan, riset ilmiah, pengembangan vaksin berbasis platform umum, serta kolaborasi internasional dalam penanganan wabah.\r\n\r\nDi Indonesia, Kementerian Kesehatan merespons peringatan ini dengan mulai membangun dan memperluas jaringan surveilans genomik serta laboratorium kesehatan publik hingga ke tingkat puskesmas. Hal ini bertujuan untuk mendeteksi lebih cepat kemungkinan munculnya penyakit baru, sekaligus menyiapkan langkah-langkah respons yang lebih akurat dan terkoordinasi.\r\n\r\nPara ahli epidemiologi menilai bahwa Indonesia termasuk negara yang rawan terhadap potensi Disease X karena memiliki populasi besar, mobilitas masyarakat yang tinggi, wilayah kepulauan yang luas, serta interaksi dekat antara manusia dan satwa liar. Faktor-faktor ini memperbesar peluang terjadinya zoonosis, yaitu penularan penyakit dari hewan ke manusia — yang kerap menjadi sumber awal pandemi global.', 'olahraga', '684bdd851d83c.jpg', 'who-peringatkan-potensi-pandemi-baru-disease-x-indonesia-diminta-siaga', 'Dimas Kanjeng', '2025-06-13 15:12:53', NULL),
+(24, 'Pansus Hak Angket DPR Mulai Investigasi Proyek IKN', 'Panitia Khusus (Pansus) Hak Angket DPR RI resmi memulai proses investigasi terhadap proyek Ibu Kota Nusantara (IKN). Langkah ini diambil menyusul kekhawatiran dan dugaan adanya penyimpangan prosedural, kebijakan, serta potensi pelanggaran hukum dalam proses perencanaan dan pelaksanaan megaproyek tersebut.\r\n\r\nPansus dibentuk sebagai respons atas berbagai sorotan publik, termasuk isu terkait transparansi anggaran, keterlibatan investor, pembebasan lahan, dan prioritas pembangunan. DPR menyatakan bahwa pengawasan terhadap proyek IKN merupakan tanggung jawab konstitusional untuk memastikan bahwa kebijakan pembangunan dijalankan secara adil, akuntabel, dan sesuai kepentingan nasional.\r\n\r\nSelama masa investigasi, Pansus akan memanggil sejumlah pihak terkait, termasuk perwakilan dari Otorita IKN, Kementerian PUPR, Kementerian Keuangan, serta pakar tata kota dan pengamat kebijakan publik. Tujuannya adalah menggali keterangan dan dokumen yang dapat memperjelas proses pengambilan keputusan dan pelaksanaan proyek.\r\n\r\nLangkah ini menandai keseriusan DPR dalam menjalankan fungsi kontrol terhadap kebijakan strategis pemerintah. Investigasi Pansus bisa berdampak pada kepercayaan publik terhadap proyek IKN, serta membuka ruang evaluasi terhadap jalannya pembangunan nasional.', 'politik', '684bde4f26efc.jpg', 'pansus-hak-angket-dpr-mulai-investigasi-proyek-ikn', 'Sekretariat DPR RI', '2025-06-13 15:16:15', NULL),
+(25, 'Wuling BinguoEV Meledak di Pameran, Produsen Klaim Kesalahan Modifikasi', 'Pada pertengahan Agustus 2024, publik dikejutkan dengan viralnya video kecelakaan hebat yang melibatkan sebuah mobil listrik Wuling BinguoEV. Peristiwa ini terjadi di Tol Dalam Kota KM 17+500 arah Pluit, Jakarta, sekitar pukul 02.35 WIB. Mobil tersebut menghantam bagian belakang sebuah truk tronton dengan sangat keras, menyebabkan kerusakan parah pada bagian depan, sisi kanan-kiri, hingga atap mobil. Dalam dokumentasi yang tersebar, terlihat hanya bagian belakang mobil yang masih relatif utuh, sementara bodi bagian depan ringsek berat.\r\n\r\nMeski mengalami kerusakan ekstrem, pengemudi yang merupakan seorang wanita berhasil selamat, meskipun mengalami luka patah pada tangan kiri. Ia masih dalam kondisi sadar saat proses evakuasi. Kejadian ini memunculkan kekhawatiran publik, apalagi banyak yang menduga bahwa mobil tersebut mengalami ledakan pascakecelakaan.\r\n\r\nNamun, pihak Wuling Motors Indonesia segera memberikan klarifikasi. Mereka menyatakan bahwa dalam kecelakaan tersebut tidak terjadi ledakan maupun kebakaran, dan baterai lithium ferrophosphate (LFP) pada BinguoEV tetap dalam kondisi aman—tidak bocor atau terbakar. Baterai tersebut telah melewati pengujian ketat, termasuk tes benturan, getaran, akselerasi, dan uji air (sertifikasi IP67), serta dilindungi oleh struktur rangka berbahan High Strength Steel yang didesain untuk menjaga keselamatan baterai dan kabin penumpang.\r\n\r\nSementara itu, muncul pula narasi bahwa kendaraan tersebut merupakan versi modifikasi yang pernah dipamerkan dalam ajang Indonesia Modification Expo (IMX) 2024, menampilkan tampilan lebih menarik seperti bodykit, wrapping warna mencolok, dan air suspension. Meski begitu, Wuling menegaskan bahwa modifikasi tersebut bersifat estetika dan tidak memengaruhi struktur keselamatan utama kendaraan.', 'gayahidup', '684be47022b7c.jpeg', 'wuling-binguoev-meledak-di-pameran-produsen-klaim-kesalahan-modifikasi', 'Bobby Triputra Majid', '2025-06-13 15:42:24', NULL),
+(26, 'BPOM Temukan 5 Produk Skincare Mengandung Merkuri, Ini Cirinya', 'Pada April 2025, Badan Pengawas Obat dan Makanan (BPOM) menarik sebanyak 16 produk skincare dan kosmetik dari peredaran, di mana 5 di antaranya terbukti mengandung merkuri dalam kadar yang melebihi ambang batas yang diizinkan. Hasil uji laboratorium menunjukkan bahwa produk-produk tersebut mengandung zat berbahaya seperti merkuri, hidrokuinon, asam retinoat, timbal, hingga pewarna tekstil merah K10, yang berisiko menyebabkan efek buruk bagi kesehatan. BPOM mengimbau masyarakat untuk melepaskan penggunaan produk tersebut, terutama jika sudah muncul gejala seperti gatal-gatal, ruam kemerahan, sensasi terbakar, atau iritasi kulit.\r\n\r\nPenggunaan jangka panjang produk bermerkuri dapat menyebabkan dampak serius seperti penipisan kulit, bintik hitam yang menetap (ochronosis), gangguan pada sistem saraf, kerusakan ginjal, dan reaksi toksik sistemik lainnya. Terkait hal ini, BPOM telah melakukan pencabutan izin edar, penarikan produk dari pasar, penghentian sementara kegiatan produksi dan distribusi, serta melakukan inspeksi di berbagai fasilitas produksi dan distribusi.\r\n\r\nBPOM juga menegaskan bahwa pelaku usaha yang tetap memproduksi atau mengedarkan produk kosmetik berbahaya tersebut bisa dikenakan sanksi administratif hingga hukuman pidana maksimal 12 tahun penjara dan denda sebesar Rp5 miliar, sebagaimana diatur dalam Undang-Undang Kesehatan Nomor 17 Tahun 2023.\r\n', 'olahraga', '684be503b7011.jpg', 'bpom-temukan-5-produk-skincare-mengandung-merkuri-ini-cirinya', 'Mutiara Suci', '2025-06-13 15:44:51', NULL),
+(27, 'Kejagung Sita 3 Kapal Mewah Milik Tersangka Korupsi BLBI', 'Pada April 2025, Kejaksaan Agung menyita dua kapal mewah milik Ariyanto Bakri, seorang pengacara yang menjadi tersangka dalam kasus dugaan suap terhadap hakim dan panitera Pengadilan Negeri Jakarta Pusat. Penyitaan dilakukan sebagai bagian dari pengusutan kasus suap dalam perkara vonis lepas tiga perusahaan besar terkait ekspor minyak goreng (CPO). Kedua kapal mewah tersebut ditemukan di Pantai Marina Ancol, Jakarta Utara. Salah satunya merupakan yacht jenis Azimut 40S berwarna putih bernama “Say So”, dan satu lagi adalah kapal cepat Scorpio GT4 berwarna hitam-merah dengan tiga mesin. Kedua kapal itu diperkirakan memiliki nilai total lebih dari Rp14 miliar.\r\n\r\nSelain kapal, Kejaksaan juga menyita berbagai aset mewah lainnya seperti mobil sport Porsche GT3 RS, Mini GP, Range Rover, Lexus, dan motor Harley-Davidson, serta lebih dari 100 helm dan sepeda premium. Total aset tersebut menjadi bukti penting dalam perkara suap yang diperkirakan melibatkan dana sekitar Rp60 miliar untuk memengaruhi vonis lepas di tingkat pengadilan. Meski sempat beredar klaim penyitaan kapal senilai Rp300 miliar terkait kasus BLBI era 1998, hingga saat ini tidak ditemukan fakta penyitaan kapal dalam perkara BLBI oleh Kejagung dengan nominal sebesar itu. Maka, informasi tersebut tampaknya tidak sesuai dengan fakta hukum yang sedang berjalan.\r\n\r\nSeluruh aset yang disita direncanakan akan dilelang melalui Kantor Pelayanan Kekayaan Negara dan Lelang (KPKNL). Hasil lelang akan digunakan untuk mengembalikan kerugian negara dan mendukung proses penegakan hukum lebih lanjut. Proses hukum terhadap Ariyanto Bakri, serta oknum panitera dan hakim yang terlibat, saat ini masih berlangsung di bawah pengawasan Kejaksaan Agung. Penyitaan ini menunjukkan langkah tegas aparat dalam menindak dugaan korupsi, sekaligus menjadi peringatan bagi para pelaku hukum untuk menjaga integritas dan tidak menyalahgunakan wewenang.', 'ekonomi', '684c1c4d5983a.jpeg', 'kejagung-sita-3-kapal-mewah-milik-tersangka-korupsi-blbi', 'Bobby Triputra Majid', '2025-06-13 19:40:45', NULL),
+(28, 'UNESCO Tetapkan Batik Edukasi sebagai Warisan Budaya Dunia', 'UNESCO secara resmi menetapkan pendidikan dan pelatihan batik Indonesia sebagai bagian dari Daftar Praktik Baik dalam Pelestarian Warisan Budaya Takbenda Dunia. Penetapan ini melengkapi pengakuan sebelumnya pada tanggal 2 Oktober 2009, ketika batik tulis dan batik cap diakui sebagai Masterpiece of Oral and Intangible Heritage of Humanity. Pengakuan tersebut menegaskan bahwa batik bukan hanya kain bermotif, melainkan bagian penting dari identitas budaya bangsa Indonesia yang diwariskan secara turun-temurun. Batik memiliki nilai filosofis, simbolis, dan spiritual yang melekat dalam berbagai siklus kehidupan masyarakat Indonesia, mulai dari kelahiran hingga kematian.\r\n\r\nProgram Batik Edukasi yang diakui oleh UNESCO mencakup upaya pendidikan formal yang dilakukan di berbagai jenjang sekolah dan politeknik, terutama di kota-kota sentra batik seperti Pekalongan. Dalam program ini, siswa tidak hanya diajarkan cara membatik, tetapi juga memahami nilai budaya, sejarah, dan filosofi motif batik. Tujuan utamanya adalah menjamin kelestarian seni batik melalui generasi muda, sekaligus menumbuhkan kebanggaan terhadap warisan budaya bangsa.\r\n\r\nPenetapan ini juga mendorong peningkatan kesadaran publik, baik di tingkat lokal, nasional, maupun internasional, akan pentingnya menjaga dan mengembangkan budaya takbenda seperti batik. Setiap tanggal 2 Oktober kini diperingati sebagai Hari Batik Nasional, menjadi momen refleksi sekaligus perayaan atas pencapaian budaya Indonesia yang telah diakui dunia. Batik kini tidak hanya menjadi simbol estetika dalam busana, tetapi juga menjadi sarana pembelajaran dan pewarisan nilai budaya di tengah tantangan modernisasi.', 'hiburan', '684c1d6c0b877.jpeg', 'unesco-tetapkan-batik-edukasi-sebagai-warisan-budaya-dunia', 'Suryadadi', '2025-06-13 19:45:32', NULL),
+(29, 'Peneliti UI Temukan Senyawa Alami dari Kulit Manggis untuk Obat Diabetes', 'Tim peneliti dari Universitas Indonesia (UI) berhasil menemukan senyawa alami dari kulit manggis yang berpotensi menjadi bahan dasar obat diabetes. Penelitian ini dilakukan oleh para ahli dari Fakultas Farmasi UI yang tertarik menggali potensi tanaman lokal sebagai alternatif terapi penyakit metabolik. Melalui proses ekstraksi dan isolasi senyawa aktif dari kulit manggis, ditemukan bahwa senyawa tersebut memiliki kemampuan dalam menurunkan kadar gula darah serta meningkatkan sensitivitas insulin pada sel tubuh. Salah satu senyawa utama yang berperan adalah xanthone, yang diketahui memiliki efek antioksidan dan antidiabetik.\r\n\r\nPenelitian ini menggunakan pendekatan in vitro dan in vivo, serta uji awal pada hewan laboratorium menunjukkan hasil yang menjanjikan. Selain bersifat alami dan lebih ramah bagi tubuh, senyawa dari kulit manggis juga menunjukkan risiko efek samping yang lebih rendah dibandingkan beberapa obat sintetik antidiabetes yang beredar di pasaran. Para peneliti UI berharap temuan ini dapat dikembangkan lebih lanjut ke tahap uji klinis dan produksi massal sebagai fitofarmaka atau obat herbal terstandar. Selain itu, pemanfaatan limbah kulit manggis juga memberi nilai tambah dari sisi ekonomi dan lingkungan.\r\n\r\nPenemuan ini menjadi bukti penting bahwa kekayaan hayati Indonesia, jika dikelola secara ilmiah, dapat memberikan kontribusi nyata dalam pengembangan obat-obatan modern, khususnya untuk penyakit kronis seperti diabetes yang kasusnya terus meningkat setiap tahun. Tim peneliti UI juga mendorong kolaborasi dengan industri farmasi dan pemerintah agar hasil riset ini dapat dimanfaatkan secara luas untuk masyarakat.', 'olahraga', '684c1e4ced5a3.jpeg', 'peneliti-ui-temukan-senyawa-alami-dari-kulit-manggis-untuk-obat-diabetes', 'DImas Kanjeng', '2025-06-13 19:49:16', NULL),
+(30, 'Kemendikbud Wajibkan Bahasa Inggris dan Coding di Kurikulum SD Mulai 2025', 'Mulai tahun ajaran 2025/2026, Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi (Kemendikbudristek) akan menerapkan mata pelajaran coding dan kecerdasan buatan (AI) sebagai muatan pilihan di Sekolah Dasar, khususnya untuk kelas 4 dan 5. Kebijakan ini bertujuan untuk membekali siswa sejak dini dengan kemampuan literasi digital, agar mereka mampu menghadapi tantangan zaman yang semakin terdigitalisasi. Pelaksanaan akan dimulai secara bertahap, terutama di sekolah-sekolah yang telah memiliki fasilitas pendukung seperti komputer, koneksi internet, serta tenaga pendidik yang memadai.\r\n\r\nSementara itu, Bahasa Inggris akan menjadi mata pelajaran wajib untuk SD kelas 3 ke atas mulai tahun ajaran 2027/2028. Saat ini, Bahasa Inggris masih bersifat sebagai pelajaran pilihan yang diberikan berdasarkan kesiapan masing-masing sekolah. Dalam masa transisi hingga 2026/2027, Kemendikbudristek memberikan kesempatan kepada sekolah-sekolah untuk mempersiapkan diri, termasuk melalui pelatihan guru, penyediaan modul ajar, dan peningkatan infrastruktur pembelajaran. Fokus utama pembelajaran Bahasa Inggris nantinya adalah pada kemampuan komunikasi aktif dan pemahaman informasi, bukan hanya pada penguasaan struktur gramatikal.\r\n\r\nKedua kebijakan ini merupakan bagian dari transformasi kurikulum nasional yang bertujuan untuk meningkatkan kompetensi abad ke-21 bagi siswa Indonesia. Pemerintah juga menggandeng berbagai mitra, seperti lembaga pelatihan dan organisasi pendidikan, untuk membantu menyiapkan tenaga pengajar serta konten ajar yang relevan. Implementasi ini diharapkan dapat mendorong kemajuan pendidikan dasar dan menjawab kebutuhan sumber daya manusia yang adaptif terhadap perkembangan teknologi dan globalisasi.\r\n', 'hiburan', '684c1ed318b8a.jpg', 'kemendikbud-wajibkan-bahasa-inggris-dan-coding-di-kurikulum-sd-mulai-2025', 'Mutiara Suci', '2025-06-13 19:51:31', NULL),
+(31, 'Tokopedia Rilis Fitur AI untuk Rekomendasi Produk Personal', 'Tokopedia secara resmi merilis fitur terbaru berbasis kecerdasan buatan (AI) yang dirancang untuk memberikan rekomendasi produk secara personal kepada para penggunanya. Fitur ini memungkinkan platform mengenali kebiasaan belanja pengguna—seperti riwayat pencarian, jenis produk yang sering dilihat, serta pola transaksi—untuk menyajikan pilihan produk yang lebih relevan dan sesuai dengan kebutuhan individu masing-masing. Inovasi ini merupakan bagian dari upaya Tokopedia dalam meningkatkan pengalaman berbelanja yang lebih cepat, efisien, dan tepat sasaran.\r\n\r\nMelalui penerapan teknologi AI ini, pengguna dapat melihat rekomendasi yang disesuaikan langsung di beranda aplikasi, termasuk dalam kategori yang sering mereka akses. Selain meningkatkan kepuasan pengguna, fitur ini juga memberi dampak positif bagi pelaku usaha di Tokopedia karena produk mereka lebih mudah ditemukan oleh target pembeli yang tepat. Tokopedia menyatakan bahwa fitur ini terus dikembangkan secara dinamis agar semakin akurat, dengan tetap menjaga privasi dan keamanan data pelanggan.\r\n\r\nPeluncuran fitur AI ini juga sejalan dengan tren global e-commerce yang mengandalkan data dan teknologi pintar untuk menciptakan layanan yang lebih personal dan responsif. Tokopedia menegaskan bahwa mereka berkomitmen menjadikan inovasi digital sebagai bagian penting dalam mendukung pertumbuhan UMKM dan transformasi ekonomi digital Indonesia.', 'teknologi', '684c1f2643e8f.jpg', 'tokopedia-rilis-fitur-ai-untuk-rekomendasi-produk-personal', 'Rita Andriana', '2025-06-13 19:52:54', NULL),
+(32, 'Polisi Ungkap Pabrik Narkoba Berkedok Industri Kosmetik di Bekasi', 'Jajaran Polres Metro Bekasi berhasil mengungkap aktivitas pabrik narkoba rumahan yang menyamar sebagai industri kosmetik di wilayah Bekasi, Jawa Barat. Operasi penggerebekan berlangsung antara 12 April hingga 16 Mei 2025, dan dilakukan di berbagai lokasi di Kota dan Kabupaten Bekasi. Dalam penggerebekan tersebut, polisi menangkap lima tersangka yang terlibat dalam pembuatan dan distribusi narkoba sintetis—termasuk sabu, ekstasi, dan tembakau sintetis. Barang bukti yang disita diperkirakan senilai Rp1,34 miliar, terdiri dari 189 gram sabu, 373 gram bibit sinte, 2 kg tembakau sintetis, 1,5 butir ekstasi, serta lebih dari 1.300 butir obat keras golongan G.\r\n\r\nPara pelaku diketahui memanfaatkan store kosmetik palsu sebagai kedok untuk memasukkan dan menyimpan barang haram tersebut, sambil menggunakannya sebagai jaringan distribusi lewat media sosial dan aplikasi pesan. Modus distribusi narkoba dilakukan dengan sistem temu langsung setelah transaksi dilakukan melalui WhatsApp. Pengungkapan ini merupakan bagian dari serangkaian operasi untuk menindak industri ilegal di Bekasi, yang menunjukkan bahwa sindikat narkoba kini semakin kreatif menyembunyikan aktivitas mereka di balik usaha legal seperti pembuatan kosmetik.\r\n\r\nDengan pengungkapan pabrik narkoba ini, polisi berhasil menghentikan rantai distribusi zat adiktif berbahaya dan menunjukkan komitmen penegakan hukum di sektor industri palsu. Proses hukum terhadap para tersangka terus dilanjutkan, sementara aparat keamanan memperingatkan masyarakat untuk lebih waspada terhadap usaha kosmetik rumahan yang mencurigakan, karena bisa jadi menjadi kedok bagi peredaran narkotika.', 'ekonomi', '684c1f8c5b0cb.webp', 'polisi-ungkap-pabrik-narkoba-berkedok-industri-kosmetik-di-bekasi', 'Bobby Triputra Majid', '2025-06-13 19:54:36', NULL);
 
-('Indonesia Jajaki Kesepakatan FTA dengan Uni Eropa Akhir Juni',
-'Menteri Airlangga Hartarto menyatakan bahwa negosiasi perjanjian perdagangan bebas dengan EU ditarget rampung akhir Juni, membuka akses pasar untuk produk Indonesia.',
-'ekonomi',
-'fta_eu.jpg',
-'indonesia-jajaki-fta-uni-eropa-akhir-juni',
-'Airlangga Hartarto',
-'2025-06-07 09:00:00',
-NULL),
+-- --------------------------------------------------------
 
-('Turki Ekspor 48 Jet Tempur KAAN ke Indonesia',
-'Presiden Erdogan mengumumkan kesepakatan ekspor 48 unit jet tempur generasi kelima KAAN ke Indonesia, dengan integrasi manufaktur lokal.',
-'politik',
-'kaan_jet.jpg',
-'turki-ekspor-48-jet-tempur-kaan-ke-indonesia',
-'Recep Erdogan',
-'2025-06-11 10:51:00',
-NULL),
+--
+-- Table structure for table `dukungan`
+--
 
-('Indonesia Gulirkan Stimulus Rp 24,4 T Dorong Ekonomi Semester II',
-'Pemerintah meluncurkan paket stimulus senilai Rp 24,4 triliun meliputi subsidi transportasi, bantuan sosial, dan diskon tol untuk menstabilkan konsumsi selama libur sekolah.',
-'ekonomi',
-'stimulus.jpg',
-'indonesia-gulirkan-stimulus-rp24-4t',
-'Sri Mulyani',
-'2025-06-05 02:38:00',
-NULL),
+CREATE TABLE `dukungan` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `pesan` text NOT NULL,
+  `tanggal` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-('Presiden Prabowo: Target Ekonomi RI Tumbuh 5–5,8 % di 2026',
-'Menteri Keuangan menyampaikan bahwa target pertumbuhan ekonomi Indonesia tahun 2026 di kisaran 5,2–5,8 %, didukung penguatan sektor pangan, energi, dan pendidikan.',
-'ekonomi',
-'pertumbuhan2026.jpg',
-'prabowo-optimis-pertumbuhan-ekonomi-2026',
-'Sri Mulyani',
-'2025-05-20 06:50:00',
-NULL),
+--
+-- Dumping data for table `dukungan`
+--
 
-('GIIAS 2025 Siap Digelar 24 Juli di BSD City',
-'Pameran otomotif terbesar di Indonesia, GIIAS 2025, akan digelar mulai 24 Juli hingga 3 Agustus di ICE BSD City, menampilkan produk terbaru industri otomotif.',
-'otomotif',
-'giias2025.jpg',
-'giias-2025-siap-digelar-bsd-city',
-'Gaikindo',
-'2025-06-10 00:00:00',
-NULL);
+INSERT INTO `dukungan` (`id`, `nama`, `email`, `pesan`, `tanggal`) VALUES
+(1, 'andre', 'andre@gmail.com', 'web nya sangat bagus tetap semangat terus ya', '2025-06-13 01:51:29');
 
--- Recreate table tb_users
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_users`
+--
+
 CREATE TABLE `tb_users` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `namalengkap` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Insert admin user
-INSERT INTO `tb_users` (`namalengkap`, `email`, `password`, `created_at`, `updated_at`) VALUES
-('Trimajid', 'admin@gmail.com', '$2y$10$ieE2x5EoqKlrPCI0WBoHw.CPH2QACX88bbparsy2TlV7UN.zQgNRi', '2025-06-04 11:23:37', NULL);
+--
+-- Dumping data for table `tb_users`
+--
 
+INSERT INTO `tb_users` (`id`, `namalengkap`, `email`, `password`, `created_at`, `updated_at`) VALUES
+(3, 'Bobby', 'bobytriputramajid@gmail.com', '$2y$10$wvjU4r.swX8AE0nb.A6gRugnn0yJ4izoKqprBbT.BygPVVjWT0dKu', '2025-06-12 09:17:31', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dukungan`
+--
+ALTER TABLE `dukungan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `dukungan`
+--
+ALTER TABLE `dukungan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tb_users`
+--
+ALTER TABLE `tb_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
