@@ -1,31 +1,6 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Jun 13, 2025 at 03:30 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `db_berita`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `berita`
---
 
 CREATE TABLE `berita` (
   `id` int(11) NOT NULL,
@@ -38,10 +13,6 @@ CREATE TABLE `berita` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `berita`
---
 
 INSERT INTO `berita` (`id`, `judul`, `description`, `kategori`, `image`, `slug`, `author`, `created_at`, `updated_at`) VALUES
 (9, 'Indonesia Eksplorasi AI dan Teknologi Digital Bersama Inggris', 'Deputi Menteri Kominfo Nezar Patria melakukan kunjungan kerja ke London Tech Week 2025 untuk menjajaki kerjasama artificial intelligence dan digital tech dengan UK.', 'teknologi', 'inggris.jpeg', 'indonesia-eksplorasi-ai-bersama-inggris', 'Bobby Triputra Majid', '2025-06-08 01:56:16', NULL),
@@ -63,12 +34,6 @@ INSERT INTO `berita` (`id`, `judul`, `description`, `kategori`, `image`, `slug`,
 (31, 'Tokopedia Rilis Fitur AI untuk Rekomendasi Produk Personal', 'Tokopedia secara resmi merilis fitur terbaru berbasis kecerdasan buatan (AI) yang dirancang untuk memberikan rekomendasi produk secara personal kepada para penggunanya. Fitur ini memungkinkan platform mengenali kebiasaan belanja pengguna—seperti riwayat pencarian, jenis produk yang sering dilihat, serta pola transaksi—untuk menyajikan pilihan produk yang lebih relevan dan sesuai dengan kebutuhan individu masing-masing. Inovasi ini merupakan bagian dari upaya Tokopedia dalam meningkatkan pengalaman berbelanja yang lebih cepat, efisien, dan tepat sasaran.\r\n\r\nMelalui penerapan teknologi AI ini, pengguna dapat melihat rekomendasi yang disesuaikan langsung di beranda aplikasi, termasuk dalam kategori yang sering mereka akses. Selain meningkatkan kepuasan pengguna, fitur ini juga memberi dampak positif bagi pelaku usaha di Tokopedia karena produk mereka lebih mudah ditemukan oleh target pembeli yang tepat. Tokopedia menyatakan bahwa fitur ini terus dikembangkan secara dinamis agar semakin akurat, dengan tetap menjaga privasi dan keamanan data pelanggan.\r\n\r\nPeluncuran fitur AI ini juga sejalan dengan tren global e-commerce yang mengandalkan data dan teknologi pintar untuk menciptakan layanan yang lebih personal dan responsif. Tokopedia menegaskan bahwa mereka berkomitmen menjadikan inovasi digital sebagai bagian penting dalam mendukung pertumbuhan UMKM dan transformasi ekonomi digital Indonesia.', 'teknologi', '684c1f2643e8f.jpg', 'tokopedia-rilis-fitur-ai-untuk-rekomendasi-produk-personal', 'Rita Andriana', '2025-06-13 19:52:54', NULL),
 (32, 'Polisi Ungkap Pabrik Narkoba Berkedok Industri Kosmetik di Bekasi', 'Jajaran Polres Metro Bekasi berhasil mengungkap aktivitas pabrik narkoba rumahan yang menyamar sebagai industri kosmetik di wilayah Bekasi, Jawa Barat. Operasi penggerebekan berlangsung antara 12 April hingga 16 Mei 2025, dan dilakukan di berbagai lokasi di Kota dan Kabupaten Bekasi. Dalam penggerebekan tersebut, polisi menangkap lima tersangka yang terlibat dalam pembuatan dan distribusi narkoba sintetis—termasuk sabu, ekstasi, dan tembakau sintetis. Barang bukti yang disita diperkirakan senilai Rp1,34 miliar, terdiri dari 189 gram sabu, 373 gram bibit sinte, 2 kg tembakau sintetis, 1,5 butir ekstasi, serta lebih dari 1.300 butir obat keras golongan G.\r\n\r\nPara pelaku diketahui memanfaatkan store kosmetik palsu sebagai kedok untuk memasukkan dan menyimpan barang haram tersebut, sambil menggunakannya sebagai jaringan distribusi lewat media sosial dan aplikasi pesan. Modus distribusi narkoba dilakukan dengan sistem temu langsung setelah transaksi dilakukan melalui WhatsApp. Pengungkapan ini merupakan bagian dari serangkaian operasi untuk menindak industri ilegal di Bekasi, yang menunjukkan bahwa sindikat narkoba kini semakin kreatif menyembunyikan aktivitas mereka di balik usaha legal seperti pembuatan kosmetik.\r\n\r\nDengan pengungkapan pabrik narkoba ini, polisi berhasil menghentikan rantai distribusi zat adiktif berbahaya dan menunjukkan komitmen penegakan hukum di sektor industri palsu. Proses hukum terhadap para tersangka terus dilanjutkan, sementara aparat keamanan memperingatkan masyarakat untuk lebih waspada terhadap usaha kosmetik rumahan yang mencurigakan, karena bisa jadi menjadi kedok bagi peredaran narkotika.', 'ekonomi', '684c1f8c5b0cb.webp', 'polisi-ungkap-pabrik-narkoba-berkedok-industri-kosmetik-di-bekasi', 'Bobby Triputra Majid', '2025-06-13 19:54:36', NULL);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `dukungan`
---
-
 CREATE TABLE `dukungan` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
@@ -77,18 +42,8 @@ CREATE TABLE `dukungan` (
   `tanggal` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `dukungan`
---
-
 INSERT INTO `dukungan` (`id`, `nama`, `email`, `pesan`, `tanggal`) VALUES
 (1, 'andre', 'andre@gmail.com', 'web nya sangat bagus tetap semangat terus ya', '2025-06-13 01:51:29');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tb_users`
---
 
 CREATE TABLE `tb_users` (
   `id` int(11) NOT NULL,
@@ -99,58 +54,24 @@ CREATE TABLE `tb_users` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `tb_users`
---
-
 INSERT INTO `tb_users` (`id`, `namalengkap`, `email`, `password`, `created_at`, `updated_at`) VALUES
 (3, 'Bobby', 'bobytriputramajid@gmail.com', '$2y$10$wvjU4r.swX8AE0nb.A6gRugnn0yJ4izoKqprBbT.BygPVVjWT0dKu', '2025-06-12 09:17:31', NULL);
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `berita`
---
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `dukungan`
---
 ALTER TABLE `dukungan`
   ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `tb_users`
---
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `berita`
---
 ALTER TABLE `berita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
---
--- AUTO_INCREMENT for table `dukungan`
---
 ALTER TABLE `dukungan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT for table `tb_users`
---
 ALTER TABLE `tb_users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
