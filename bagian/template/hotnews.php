@@ -1,5 +1,4 @@
 <?php
-// Pastikan jalur file sesuai dari posisi hotnews.php yang berada di /bagian/template/
 include_once __DIR__ . '/../../config/db.php';
 include_once __DIR__ . '/../../controllers/BeritaControllers.php';
 
@@ -83,7 +82,6 @@ function truncateText($text, $maxLength)
                             const newList = tempDiv.querySelector("#hot-news-list");
                             const newPagination = tempDiv.querySelector("#hot-news-pagination");
 
-                            // Ganti isi list dan pagination tanpa reload seluruh aside
                             document.getElementById("hot-news-list").innerHTML = newList.innerHTML;
                             document.getElementById("hot-news-pagination").innerHTML = newPagination.innerHTML;
                             attachPaginationEvents();

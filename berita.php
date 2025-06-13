@@ -6,7 +6,6 @@ include_once './controllers/BeritaControllers.php';
 
 $beritaController = new BeritaControllers($connect);
 
-// Ambil slug dari URL
 if (!isset($_GET['slug']) || empty($_GET['slug'])) {
     echo "<h1>Slug tidak ditemukan</h1>";
     exit;
@@ -56,7 +55,6 @@ function formatTanggalIndo($datetime)
 
 <body class="bg-gray-100 text-gray-800 font-sans">
 
-    <!-- Layout 3 kolom: Sidebar kiri - Konten berita - Hotnews -->
     <div class="container mx-auto px-4 pt-24">
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">

@@ -128,14 +128,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
                 <div class="footer mt-4">
-                    &copy; 2025 Rassid Risda Sulpa. All rights reserved.
+                    &copy; 2025 Bobby Triputra Majid. All rights reserved.
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Toggle password visibility
         document.querySelector('.toggle-password').addEventListener('click', function () {
             const input = document.getElementById('password');
             const icon = this.querySelector('i');

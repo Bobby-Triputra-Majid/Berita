@@ -1,7 +1,4 @@
 <?php
-// support.php
-
-// Jangan output HTML apapun sebelum DOCTYPE
 include_once './koneksi.php';
 ?>
 <!DOCTYPE html>
@@ -10,10 +7,8 @@ include_once './koneksi.php';
 <head>
     <meta charset="UTF-8">
     <title>Dukungan | LiputanNews</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Offset agar konten tidak tertutup navbar fixed (asumsi navbar tinggi ~64px) */
         body {
             padding-top: 4rem;
         }
@@ -22,20 +17,14 @@ include_once './koneksi.php';
 
 <body class="flex flex-col min-h-screen bg-gray-100">
 
-    <!-- Navbar fixed di atas -->
     <?php include_once './bagian/template/navbar.php'; ?>
 
     <div class="flex flex-1">
-        <!-- Sidebar kategori (fixed) -->
         <?php include_once './bagian/template/kategori.php'; ?>
 
-        <!-- Konten Utama: beri margin kiri untuk sidebar lg:ml-64 -->
         <main class="flex-1 lg:ml-10 p-4">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
-                <!-- Card Utama Lebih Lebar -->
-                <!-- Ganti max-w-4xl sesuai kebutuhan; e.g. max-w-3xl atau max-w-5xl -->
                 <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-1 overflow-hidden">
-                    <!-- Header Card dengan gradasi kuning -->
                     <div class="bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-300 p-6">
                         <h1 class="text-3xl font-extrabold text-white text-center">Dukungan Pengguna</h1>
                         <p class="mt-2 text-center text-yellow-100">
@@ -44,7 +33,6 @@ include_once './koneksi.php';
                     </div>
                     <!-- Konten Card -->
                     <div class="p-8">
-                        <!-- Formulir dalam grid untuk tampilan responsif -->
                         <form method="POST" action="support_handler.php" class="space-y-6">
                             <div>
                                 <label for="nama" class="block text-gray-700 font-medium mb-1">Nama Anda</label>
@@ -76,7 +64,6 @@ include_once './koneksi.php';
                             </div>
                         </form>
 
-                        <!-- Divider -->
                         <div class="my-8 border-t border-gray-200"></div>
 
                         <!-- Informasi kontak tambahan -->
@@ -111,7 +98,6 @@ include_once './koneksi.php';
                                     Medan, Sumatera Utara<br>
                                     Indonesia
                                 </p>
-                                <!-- Bisa menambahkan embed peta di sini -->
                             </div>
                         </div>
                     </div>

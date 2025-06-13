@@ -62,20 +62,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
 </head>
 
 <style>
-    /* Sidebar Lebar */
     .sidebar {
         width: 250px;
         min-height: 100vh;
         transition: all 0.3s;
     }
 
-    /* Wrapper Utama */
     .wrapper {
         min-height: 100vh;
         background-color: #f8f9fa;
     }
 
-    /* Responsif: Sidebar jadi compact di mobile */
     @media (max-width: 768px) {
         .sidebar {
             width: 80px;
@@ -98,7 +95,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
         }
     }
 
-    /* Efek hover menu */
     .nav-link {
         border-radius: 5px;
         margin-bottom: 5px;
@@ -113,7 +109,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
         background-color: #0d6efd;
     }
 
-    /* Card Form */
     .card {
         border: none;
         border-radius: 10px;
@@ -122,7 +117,6 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
 
 <body>
     <div class="wrapper d-flex">
-        <!-- Sidebar -->
         <div class="sidebar bg-dark text-white p-3">
             <h4 class="text-center mb-4">Admin Panel</h4>
             <ul class="nav flex-column">
@@ -154,12 +148,10 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
             </ul>
         </div>
 
-        <!-- Main Content -->
         <div class="main-content flex-grow-1 p-4">
             <?php if (isset($_GET['msg']) && $_GET['msg'] == 'deleted'): ?>
                 <div class="alert alert-success">Data berhasil dihapus.</div>
             <?php endif; ?>
-            <!-- Daftar Berita Terakhir (Opsional) -->
             <div class="card shadow-sm mt-4">
                 <div class="card-header bg-white">
                     <h5 class="mb-0"><i class="fas fa-history me-2"></i> Berita Terakhir</h5>
@@ -207,9 +199,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS + Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JS Kustom (Opsional) -->
     <script src="js/script.js"></script>
 </body>
 

@@ -1,5 +1,4 @@
 <?php
-// Load environment variables from .env file only if not already defined
 if (!function_exists('loadEnv')) {
     function loadEnv($path)
     {
@@ -19,8 +18,6 @@ if (!function_exists('loadEnv')) {
         }
     }
 }
-
-// Load .env file
 loadEnv(__DIR__ . '/../.env');
 
 // Database configuration

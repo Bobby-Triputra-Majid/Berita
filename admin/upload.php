@@ -220,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div class="d-flex justify-content-end gap-2">
                             <button type="reset" class="btn btn-outline-secondary">Reset</button>
-                            <button type="submit" class="btn btn-yellow">Publish Berita</button>
+                            <button type="submit" class="btn btn-dark">Publish Berita</button>
                         </div>
                     </form>
                 </div>

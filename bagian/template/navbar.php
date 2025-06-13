@@ -3,7 +3,6 @@ include_once './controllers/AuthController.php';
 $auth = new AuthController($connect);
 ?>
 
-<!-- Link Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
     :root {
@@ -338,7 +337,6 @@ $auth = new AuthController($connect);
     </nav>
 
     <script>
-        // Highlight active nav link
         const urlParams = new URLSearchParams(window.location.search);
         const currentPage = urlParams.get('page') || 'home';
         const links = document.querySelectorAll('.nav-link');
@@ -354,11 +352,9 @@ $auth = new AuthController($connect);
             }
         });
 
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        // Pastikan tombol dan menu mobile ada
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');

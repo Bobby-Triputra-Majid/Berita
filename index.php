@@ -71,7 +71,7 @@ switch ($page) {
         exit();
 
     case 'unggah':
-        include 'admin/upload-berita.php';
+        include 'admin/upload.php';
         break;
 
     case 'perbaikan':

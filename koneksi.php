@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-$password = ""; // sesuaikan jika ada password
-$database = "db_berita"; // ganti dengan nama database kamu
+$password = "";
+$database = "db_berita";
 
 $connect = new mysqli($host, $user, $password, $database);
 
