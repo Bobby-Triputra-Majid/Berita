@@ -23,7 +23,7 @@ include_once './koneksi.php';
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
                     <div class="bg-gradient-to-r from-yellow-500 to-yellow-400 p-6">
-                        <h1 class="text-3xl font-bold text-white text-center">Tentang Pembuat Website</h1>
+                        <h1 class="text-3xl font-bold text-white text-center">Pembuat Website</h1>
                     </div>
                     <div class="p-6 space-y-6">
                         <div class="flex flex-col md:flex-row items-center md:items-start gap-6">

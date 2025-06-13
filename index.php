@@ -75,7 +75,7 @@ switch ($page) {
         break;
 
     case 'perbaikan':
-        include 'admin/maintenance.php';
+        include 'admin/perbaikan.php';
         break;
 
 

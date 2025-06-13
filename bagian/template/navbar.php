@@ -230,7 +230,7 @@ $auth = new AuthController($connect);
 
 <body>
     <nav class="navbar">
-        <div class="flex-shrink-0 flex items-center">
+        <div class="flex-shrink-0 flex items-center ">
             <a href="index.php?page=home" class="flex items-center space-x-2 group">
                 <svg xmlns="" width="50" height="50" viewBox="0 0 32 32">
                     <path

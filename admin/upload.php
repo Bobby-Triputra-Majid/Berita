@@ -71,20 +71,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <style>
-    /* Sidebar Lebar */
     .sidebar {
         width: 250px;
         min-height: 100vh;
         transition: all 0.3s;
+        background-color: #212529;
+        color: #ffffff;
+        border-right: 2px solid #ffc107;
     }
 
-    /* Wrapper Utama */
     .wrapper {
         min-height: 100vh;
         background-color: #f8f9fa;
     }
 
-    /* Responsif: Sidebar jadi compact di mobile */
     @media (max-width: 768px) {
         .sidebar {
             width: 80px;
@@ -105,6 +105,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-right: 0;
             font-size: 1.2rem;
         }
+    }
+
+    .sidebar .nav-link {
+        color: #ccc;
+        /* Warna default */
+        border-radius: 5px;
+        margin-bottom: 5px;
+        transition: all 0.2s;
+    }
+
+    .sidebar .nav-link:hover {
+        background-color: #343a40;
+        color: #0d6efd;
+    }
+
+    .sidebar .nav-link.active {
+        background-color: #ffc107;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
     }
 
     /* Efek hover menu */
@@ -133,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="wrapper d-flex">
         <!-- Sidebar -->
         <div class="sidebar bg-dark text-white p-3">
-            <h4 class="text-center mb-4">Admin Panel</h4>
+            <h4 class="text-center mb-4"></h4>
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link " href="?page=admin">

@@ -66,6 +66,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
         width: 250px;
         min-height: 100vh;
         transition: all 0.3s;
+        background-color: #212529;
+        color: #ffffff;
+        border-right: 2px solid #ffc107;
     }
 
     .wrapper {
@@ -95,18 +98,23 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
         }
     }
 
-    .nav-link {
+    .sidebar .nav-link {
+        color: #ccc;
+        /* Warna default */
         border-radius: 5px;
         margin-bottom: 5px;
         transition: all 0.2s;
     }
 
-    .nav-link:hover {
-        background-color: rgba(255, 255, 255, 0.1);
+    .sidebar .nav-link:hover {
+        background-color: #343a40;
+        color: #0d6efd;
     }
 
-    .nav-link.active {
-        background-color: #0d6efd;
+    .sidebar .nav-link.active {
+        background-color: #ffc107;
+        color: #000;
+        font-weight: bold;
     }
 
     .card {
@@ -115,10 +123,11 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
     }
 </style>
 
+
 <body>
     <div class="wrapper d-flex">
         <div class="sidebar bg-dark text-white p-3">
-            <h4 class="text-center mb-4">Admin Panel</h4>
+            <h4 class="text-center mb-4"></h4>
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a class="nav-link active" href="?page=admin">
